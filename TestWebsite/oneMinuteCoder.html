@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- https://youtube.com/shorts/irHUsHbjIY4?feature=share -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Javascript program example,
+        change a second select list options
+        based on the first select list option
+    </title>
+</head>
+<body>
+    <form action="results.html" method="get">
+        <!-- Der Startklassenraum -->
+        <label for="slct1.1">Wähle den Start aus:</label>
+        <br>
+        <select style="width: 150px;" id="slct1.1">
+            <option>choose a species</option>
+        </select>
+        <br><br>
+
+        <label for="slct2.1"></label>
+        <select style="width: 150px;" id="slct2.1">
+            <option></option>
+        </select>
+
+        <br><br><br><br>
+
+        <!-- Der Zielklassenraum -->
+        <label for="slct1.2">Wähle das Ende aus</label>
+        <br>
+        <select style="width: 150px;" id="slct1.2">
+            <option>choose a species</option>
+        </select>
+        <br><br>
+
+        <label for="slct2.2"></label>
+        <select style="width: 150px;" id="slct2.2">
+            <option></option>
+        </select>
+
+        <br><br>
+        <button type="submit">->Klick mich<-</button>
+        <button type="reset">NEIN!!!</button>
+    </form>
+
+
+</body>
+<script>
+    let species = ["Animals", "Vegetables"];
+    let animals = ["Lion", "Cow", "Tiger"];
+    let vegetable = ["Cucumber", "Pumpkin", "Potato"];
+
+    let slct11 = document.getElementById("slct1.1");
+    let slct12 = document.getElementById("slct1.2");
+    let slct21 = document.getElementById("slct2.1");
+    let slct22 = document.getElementById("slct2.2");
+
+    species.forEach(function addSpecies(item) {
+        let option = document.createElement("option");
+        option.text = item;
+        option.value = item;
+        slct11.appendChild(option);
+        slct12.appendChild(option);
+    });
+
+    slct11.onchange = changer(slct21);
+    slct12.onchange = changer(slct22);
+
+        function changer (selector) {
+        selector.innerHTML = "<option></option>";
+        if (this.value === "Animals") {
+            addToSlct2(animals);
+        }
+        if (this.value === "Vegetable") {
+            addToSlct2(vegetable);
+        }
+    }
+
+    function addToSlct2(arr) {
+        arr.forEach(function (item){
+            let option = document.createElement("option");
+            option.text = item;
+            option.value = item;
+            slct21.appendChild(option);
+        });
+    }
+</script>
+</html>
