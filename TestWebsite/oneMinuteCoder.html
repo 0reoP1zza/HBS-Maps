@@ -15,13 +15,18 @@
         <label for="slct1.1">Wähle den Start aus:</label>
         <br>
         <select style="width: 150px;" id="slct1.1">
-            <option>choose a species</option>
+            <option selected disabled value="">Haus auswählen</option>
+            <option value="a">A</option>
+            <option value="b">B</option>
+            <option value="c">C</option>
+            <option value="d">D</option>
+            <option value="f">F</option>
         </select>
         <br><br>
 
         <label for="slct2.1"></label>
         <select style="width: 150px;" id="slct2.1">
-            <option></option>
+            <option selected disabled value="">Klasse auswählen</option>
         </select>
 
         <br><br><br><br>
@@ -30,13 +35,18 @@
         <label for="slct1.2">Wähle das Ende aus</label>
         <br>
         <select style="width: 150px;" id="slct1.2">
-            <option>choose a species</option>
+            <option selected disabled value="">Haus auswählen</option>
+            <option value="a">A</option>
+            <option value="b">B</option>
+            <option value="c">C</option>
+            <option value="d">D</option>
+            <option value="f">F</option>
         </select>
         <br><br>
 
         <label for="slct2.2"></label>
         <select style="width: 150px;" id="slct2.2">
-            <option></option>
+            <option selected disabled value="">Klasse auswählen</option>
         </select>
 
         <br><br>
@@ -47,22 +57,29 @@
 
 </body>
 <script>
-    let species = ["Animals", "Vegetables"];
-    let animals = ["Lion", "Cow", "Tiger"];
-    let vegetable = ["Cucumber", "Pumpkin", "Potato"];
+    //erstmal müssen wir auswählbaren elemente difinieren
+    //let haus = ["A", "B", "C", "D", "E", "F"];
+    let A = ["A101", "A102", "A103", "A104", "A105"];
+    let B = ["B101", "B102", "B103", "B104", "B105"];
+    let C = ["C101", "C102", "C103", "C104", "C105"];
+    let D = ["D101", "D102", "D103", "D104", "D105"];
+    let E = ["E101", "E102", "E103", "E104", "E105"];
+    let F = ["F101", "F102", "F103", "F104", "F105"];
 
+    //Hier werden die elemente aus der Dom angesprochen per Id
     let slct11 = document.getElementById("slct1.1");
     let slct12 = document.getElementById("slct1.2");
     let slct21 = document.getElementById("slct2.1");
     let slct22 = document.getElementById("slct2.2");
 
-    species.forEach(function addSpecies(item) {
+    //jedes Haus wird hier als option angegeben
+    /*haus.forEach(function addSpecies(item) {
         let option = document.createElement("option");
         option.text = item;
         option.value = item;
         slct11.appendChild(option);
         slct12.appendChild(option);
-    });
+    });*/
 
     slct11.onchange = changer(slct21);
     slct12.onchange = changer(slct22);
